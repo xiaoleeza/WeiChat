@@ -484,9 +484,7 @@
       \hspace{.1in}
     };
     \draw (0,.2) node[anchor=west,gray] {\settowidth{\testxxla}{\zihao{6}#1}\zihao{6}#1};
-%    \fill[white] ([yshift=-5pt,xshift=\pgflinewidth]youa.north west) to[bend left=15] ++(-3mm,-3mm) coordinate (arrow) to[bend right] ++(3mm,1mm) -- cycle;
-    \fill[kikyellow] ([yshift=-5pt,xshift=\pgflinewidth]youa.north west) (0.01in,-0.07in) -- (-0.05in,-0.05in) -- (0.01in,-0.13in) -- cycle;
-    \draw[kikbrown] ([yshift=-5pt,xshift=\pgflinewidth]youa.north west) (0,-0.07in) -- (-0.05in,-0.05in) -- (0,-0.13in);
+    \fill[white] ([yshift=-5pt,xshift=\pgflinewidth]youa.north west) to[bend left=15] ++(-3mm,-3mm) coordinate (arrow) to[bend right] ++(3mm,1mm) -- cycle;
     \draw ([yshift=-0.5ex,xshift=-1ex]youa.north east) node[scale=1.825,path picture={
               }
             ] {\includegraphics[width=.15in]{eye.pdf}};

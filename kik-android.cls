@@ -436,6 +436,35 @@
   \vspace{.01in}\\
 }
 
+\def\meb#1#2{
+  \hphantom{.}\hfill\begin{tikzpicture}
+    \color{black}
+    \draw (0,-.3) node[remember picture,anchor=north east,rectangle,rounded corners=5,fill=kikyellow, scale=0.75,draw=kikbrown] (meb) {
+      \hspace{.1in}\begin{varwidth}{2.5in}
+        \vphantom{.}
+        \raggedleft\zihao{-4}#2\\
+        \tiny  \color{kikyellow}.
+      \end{varwidth}
+      \hspace{.1in}
+    };
+    \draw (0,-.1) node[anchor=east,kikbrown] {\settowidth{\testxxla}{\zihao{6}#1}\zihao{6}#1};
+    \fill[kikyellow] ([yshift=-5pt,xshift=-\pgflinewidth]meb.north east) (-0.01in,-0.18in) -- (0.04in,-0.16in) -- (-0.01in,-0.25in) -- cycle;
+     \draw[kikbrown] ([yshift=-5pt,xshift=-\pgflinewidth]meb.north east) (-0.005in,-0.18in) -- (0.04in,-0.16in) -- (-0.005in,-0.24in);
+%    \fill[kikyellow] ([yshift=-5pt,xshift=-\pgflinewidth]mea.north east) to[bend right=15] ++(3mm,-3mm) to[bend left] ++(-3mm,1mm) --cycle;
+    \ifdefined\@MePic
+        \draw ([yshift=-3pt,xshift=.25in]meb.north east) node[scale=1.825,circle, path picture={
+            \node at (path picture bounding box.center){
+              \includegraphics[width=.25in]{\@MePic}
+            };
+          }
+        ] {};
+    \draw ([yshift=3pt,xshift=0.5ex]meb.south west) node[scale=1.825,path picture={
+                  }
+                ] {\includegraphics[width=.13in]{2615.pdf}};
+  \end{tikzpicture}
+  \vspace{.01in}\\
+}
+
 \def\youa#1#2{%
   \begin{tikzpicture}
   \ifdefined\@partnerPic
@@ -455,7 +484,9 @@
       \hspace{.1in}
     };
     \draw (0,.2) node[anchor=west,gray] {\settowidth{\testxxla}{\zihao{6}#1}\zihao{6}#1};
-    \fill[white] ([yshift=-5pt,xshift=\pgflinewidth]youa.north west) to[bend left=15] ++(-3mm,-3mm) coordinate (arrow) to[bend right] ++(3mm,1mm) -- cycle;
+%    \fill[white] ([yshift=-5pt,xshift=\pgflinewidth]youa.north west) to[bend left=15] ++(-3mm,-3mm) coordinate (arrow) to[bend right] ++(3mm,1mm) -- cycle;
+    \fill[kikyellow] ([yshift=-5pt,xshift=\pgflinewidth]youa.north west) (0.01in,-0.07in) -- (-0.05in,-0.05in) -- (0.01in,-0.13in) -- cycle;
+    \draw[kikbrown] ([yshift=-5pt,xshift=\pgflinewidth]youa.north west) (0,-0.07in) -- (-0.05in,-0.05in) -- (0,-0.13in);
     \draw ([yshift=-0.5ex,xshift=-1ex]youa.north east) node[scale=1.825,path picture={
               }
             ] {\includegraphics[width=.15in]{eye.pdf}};

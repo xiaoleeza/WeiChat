@@ -52,6 +52,8 @@
 \definecolor{Qmblue}{RGB}{127,180,255}
 \definecolor{kiktimepalegray}{RGB}{158,169,184}
 \definecolor{kiktimedarkgray}{RGB}{122,133,151}
+\definecolor{kikyellow}{RGB}{254,248,226}
+\definecolor{kikbrown}{RGB}{117,102,95}
 
 %--------------------------------------------------
 %            icon definition
@@ -344,6 +346,10 @@
 \def\@partnerPic{#1}%
 }
 
+\def\setMePic#1{%
+\def\@MePic{#1}%
+}
+
 \def\setHours#1{%
 \def\@hours{#1}%
 }
@@ -352,18 +358,26 @@
 \def\@minutes{#1}%
 }
 
-\def\me#1{%
+\def\me#1#2{%
 \hphantom{.}\hfill\begin{tikzpicture}
-    \draw (0,0) node[anchor=north east,rectangle,rounded corners=2,fill=Qblue, scale=0.75,draw=circgray] {
+    \draw (0,0) node[anchor=north east,rectangle,rounded corners=2,fill=Qblue, scale=0.75,draw=circgray] (me) {
       \hspace{.1in}\begin{varwidth}{2.5in}
         \vphantom{.}
-        \raggedright\zihao{-4} #1\\
+        \raggedright\zihao{-4} #2\\
         \tiny \color{msggreen}.
       \end{varwidth}
       \hspace{.1in}
     };
+    \draw (0,1ex) node[anchor=east,gray] {\settowidth{\testxxla}{\zihao{6}#1}\zihao{6}#1};
     \fill[Qblue] (-0.01in,-0.06in) -- (0.06in,-0.12in) -- (-0.01in,-0.18in) -- cycle;
     \draw[circgray] (0,-0.06in) -- (0.06in,-0.12in) -- (0in,-0.18in);
+    \ifdefined\@MePic
+            \draw ([yshift=-3pt,xshift=.25in]me.north east) node[scale=1.825,circle, path picture={
+                \node at (path picture bounding box.center){
+                  \includegraphics[width=.25in]{\@MePic}
+                };
+              }
+            ] {};
   \end{tikzpicture}%
 \vspace{.05in}\\%
 }
@@ -396,6 +410,86 @@
 	%\draw (n1) node[yshift=-10pt,xshift=\testxxla,anchor=south east,overlay] {\includegraphics[width=.25in]{eye.pdf}};
   \end{tikzpicture}%
 \vspace{.05in}\\%
+}
+
+\def\mea#1#2{
+  \hphantom{.}\hfill\begin{tikzpicture}
+    \color{white}
+    \draw (0,-.3) node[remember picture,anchor=north east,rectangle,rounded corners=5,fill=msggreen, scale=0.75,draw=linegray] (mea) {
+      \hspace{.1in}\begin{varwidth}{2.5in}
+        \vphantom{.}
+        \raggedleft\zihao{-4} #2\\
+        \tiny  \color{msggreen}.
+      \end{varwidth}
+      \hspace{.1in}
+    };
+    \draw (0,-.1) node[anchor=east,gray] {\settowidth{\testxxla}{\zihao{6}#1}\zihao{6}#1};
+    \fill[msggreen] ([yshift=-5pt,xshift=-\pgflinewidth]mea.north east) to[bend right=15] ++(3mm,-3mm) to[bend left] ++(-3mm,1mm) --cycle;
+    \ifdefined\@MePic
+        \draw ([yshift=-3pt,xshift=.25in]mea.north east) node[scale=1.825,circle, path picture={
+            \node at (path picture bounding box.center){
+              \includegraphics[width=.25in]{\@MePic}
+            };
+          }
+        ] {};
+  \end{tikzpicture}
+  \vspace{.01in}\\
+}
+
+\def\youa#1#2{%
+  \begin{tikzpicture}
+  \ifdefined\@partnerPic
+      \draw (-.6,-.3) node[scale=1.825,circle, path picture={
+          \node at (path picture bounding box.center){
+            \includegraphics[width=.25in]{\@partnerPic}
+          };
+        }
+      ] {};
+      \else\fill[black] (-.6,-.3) circle (.12in);\fi
+    \node[anchor=north west,rectangle,rounded corners=5,fill=white, scale=0.75] (youa) {
+      \hspace{.1in}\begin{varwidth}[c]{2.5in}
+        \vphantom{.}
+        \raggedright\zihao{-4} #2\\
+        \tiny \color{white}.
+      \end{varwidth}
+      \hspace{.1in}
+    };
+    \draw (0,.2) node[anchor=west,gray] {\settowidth{\testxxla}{\zihao{6}#1}\zihao{6}#1};
+    \fill[white] ([yshift=-5pt,xshift=\pgflinewidth]youa.north west) to[bend left=15] ++(-3mm,-3mm) coordinate (arrow) to[bend right] ++(3mm,1mm) -- cycle;
+    \draw ([yshift=-0.5ex,xshift=-1ex]youa.north east) node[scale=1.825,path picture={
+              }
+            ] {\includegraphics[width=.15in]{eye.pdf}};
+  \end{tikzpicture}
+  \vspace{.05in}\\%
+}
+
+\def\youb#1#2{%
+  \begin{tikzpicture}
+  \ifdefined\@partnerPic
+      \draw (-.6,-.0) node[scale=1.825,circle, path picture={
+          \node at (path picture bounding box.center){
+            \includegraphics[width=.25in]{\@partnerPic}
+          };
+        }
+      ] {};
+      \else\fill[black] (-.6,-.0) circle (.12in);\fi
+    \node[anchor=north west,rectangle,rounded corners=5,fill=kikyellow, scale=0.75,draw=kikbrown] (youb) {
+      \hspace{.1in}\begin{varwidth}[c]{2.5in}
+        \vphantom{.}
+        \raggedright\zihao{-4} #2\\
+        \tiny \color{white}.
+      \end{varwidth}
+      \hspace{.1in}
+    };
+    \draw (0,.2) node[anchor=west,gray] {\settowidth{\testxxla}{\zihao{6}#1}\zihao{6}#1};
+    \fill[kikyellow] (0.01in,-0.07in) -- (-0.05in,-0.05in) -- (0.01in,-0.13in) -- cycle;
+    \draw[kikbrown] (0,-0.07in) -- (-0.05in,-0.05in) -- (0,-0.13in);
+%    \fill[white] ([yshift=-3pt,xshift=\pgflinewidth]youa.north west) to[bend left=10] ++(-3mm,-3mm) coordinate (arrow) to[bend right] ++(3mm,1mm) -- cycle;
+    \draw ([yshift=3pt,xshift=-1ex]youb.south east) node[scale=1.825,path picture={
+              }
+            ] {\includegraphics[width=.13in]{2615.pdf}};
+  \end{tikzpicture}
+  \vspace{.05in}\\%
 }
 
 \def\time#1{%

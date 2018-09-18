@@ -418,7 +418,7 @@
     \draw (0,-.3) node[remember picture,anchor=north east,rectangle,rounded corners=5,fill=msggreen, scale=0.75,draw=linegray] (mea) {
       \hspace{.1in}\begin{varwidth}{2.5in}
         \vphantom{.}
-        \raggedleft\zihao{-4} #2\\
+        \raggedright\zihao{-4} #2\\
         \tiny  \color{msggreen}.
       \end{varwidth}
       \hspace{.1in}
@@ -442,7 +442,7 @@
     \draw (0,-.3) node[remember picture,anchor=north east,rectangle,rounded corners=5,fill=kikyellow, scale=0.75,draw=kikbrown] (meb) {
       \hspace{.1in}\begin{varwidth}{2.5in}
         \vphantom{.}
-        \raggedleft\zihao{-4}#2\\
+        \raggedright\zihao{-4}#2\\
         \tiny  \color{kikyellow}.
       \end{varwidth}
       \hspace{.1in}
